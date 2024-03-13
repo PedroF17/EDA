@@ -5,5 +5,5 @@ int main(){
     bool aux = ShowNumber(n);
     Number* start = NULL;
 
-
+    //TODO PLEASE GOD HELP
 }
