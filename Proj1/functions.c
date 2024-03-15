@@ -45,7 +45,7 @@ bool SaveBinary (char* filename, ED* numbers){
     return true;
 }
 
-ED* LoadAll(char* filename, bool* res) {
+ED* LoadBinary(char* filename, bool* res) {
 	FILE* f;
 	f = fopen(filename, "rb");
 	if (f == NULL) {

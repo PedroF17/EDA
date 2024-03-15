@@ -12,3 +12,7 @@ typedef struct ED{
 }ED;
 
 Number * NewNumber(int num);
+ED * NewED(Number* Number);
+Number* PlaceNumber(Number* start, Number* new);
+bool SaveBinary (char* filename, ED* numbers);
+ED* LoadBinary(char* filename, bool* res);
