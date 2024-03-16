@@ -44,42 +44,6 @@ bool ShowAll(Number* start){
     return true;
 }
 
-bool SaveBinary (char* filename, ED* numbers){
-    FILE* f;
-    ED e;
-
-    if (numbers==NULL || strlen(filename)) return false;
-    f = fopen(filename, "wb");
-    if (f == NULL) return false;
-
-    ED* aux = numbers;
-    while(aux){
-        e.numbers->num = aux->next;
-        fwrite(&e,1,sizeof(ED), f);
-        aux->numbers = aux->numbers->next;
-    }
-    fclose(f);
-    return true;
-}
-
-ED* LoadBinary(char* filename, bool* res) {
-	FILE* f;
-	f = fopen(filename, "rb");
-	if (f == NULL) {
-		*res = false; 
-		return NULL;
-	}
-	ED e;
-	ED* start = NULL; 
-	ED* aux;
-	while (fread(&e, 1, sizeof(Number), f)) {
-		aux = NewNumber(e.numbers->num);
-		start = PlaceNumber(start, aux);
-	}
-	fclose(f);
-	return start;
-}
-
 bool SaveFile(char* filename, Number* start) {
 	FILE* f;
 	if (start == NULL) return false;
@@ -104,8 +68,6 @@ Number* LoadFile(char* filename, bool* r) {
 	Number * aux;
 	int num;
 	while (!feof(f)) {
-		//fscanf(f, "%[^;];%d\n", p.nome, &p.idade);
-		//aux = CriaPessoa(p.nome, p.idade);
 		int col=fscanf(f, "%d;", &num);
 		aux = NewNumber(num);
 		start = PlaceNumber(start, aux);
