@@ -1,20 +1,31 @@
 /**
-*/
+ * @file stuff.h
+ * @author Pedro Faria (a23290@alunos.ipca.pt)
+ * @brief 
+ * @version 0.1
+ * @date 2024-03
+ */
+
+#include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 
-typedef struct Number{
+typedef struct Line{
     int num;
-    struct Number * next;
-}Number;
+    struct Line* next;
+}Line;
 
 typedef struct ED{
-    Number * numbers;
+    Line * startLine;
+    struct ED * next;
 }ED;
 
-Number * NewNumber(int num);
-ED * NewED(Number* Number);
-bool ShowNumber(Number* n);
-bool ShowAll(Number* start);
-Number* PlaceNumber(Number* start, Number* newentry);
-bool SaveBinary (char* filename, ED* numbers);
-ED* LoadBinary(char* filename, bool* res);
+Line * NewLine(int num);
+ED * NewED(Line* Line);
+bool ShowLine(Line* n);
+bool ShowED(ED* ED);
+Line* PlaceIntLine(Line* startLine, int newentry);
+ED* PlaceLineED(ED* startED, Line* startLine);
+ED* ReadFile(ED* startED, const char *path);
+char** splitString(char *string, const char *delim);
+ED* RemoveAll(ED* startED);
