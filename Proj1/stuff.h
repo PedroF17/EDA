@@ -29,4 +29,4 @@ ED* PlaceLineED(ED* startED, Line* startLine);
 ED* ReadFile(ED* startED, const char *path);
 char** splitString(char *string, const char *delim);
 ED* RemoveAll(ED* startED);
-Line* ReplaceNumberInLine(Line* startLine, int newentry);
+Line* ReplaceNumberInLine(Line* startLine, int numToChange, int newentry);

@@ -10,8 +10,12 @@
 
 int main(){
 ED* startED = NULL;
+
 startED = ReadFile(startED, "matrix.txt");
+
+ReplaceNumberInLine(startED->startLine, 19, 21);
 ShowED(startED);
+
 RemoveAll(startED);
 }
 

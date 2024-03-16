@@ -93,24 +93,23 @@ bool ShowED(ED* startED){
  * 
  * @param startLine Linked list Line. The beginning of the Line that hosts the first number and the memory address of the other numbers.
  * @param newentry Integer. The number that will be added at the end of the Line.
- * @return Line* Returns the new linked list.
+ * @return aux Returns the new linked list.
  */
-Line* ReplaceNumberInLine(Line* startLine, int newentry){
+Line* ReplaceNumberInLine(Line* startLine, int numToChange, int newentry){
 	if(startLine==NULL || newentry < 0) return startLine;
 	Line* aux = startLine;
-	while (aux != NULL && aux->num, newentry < 0){
-		aux = aux->next;
-
-		if ((aux->num = newentry)){
+	while (aux->next){
+		if (aux->num == numToChange){
 			aux->num = newentry;
+			break;
 		}
+		aux = aux->next;
 	}
-	return startLine;
+	return aux;
 }
 
-ED* ReplaceNumberInED(ED* startED, int newentry){
-	//todo
-}
+// ED* ReplaceNumberInED(ED* startED, int newentry){
+// }
 
 /**
  * @brief This function is used to read a matrix from a file. This uses an auxiliary function called splitString. The way this works is by reading each line as a string and splitting it wherever a comma is found. Currently giving out a segmentation fault (how kind).
