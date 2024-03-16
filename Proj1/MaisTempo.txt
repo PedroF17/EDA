@@ -1,0 +1,4 @@
+Olá prof!
+Espero que este .txt o encontre bem.
+Precisava de um pouco mais de tempo para completar a documentação pedida e "possívelmente" concluir outros pontos abordados no enunciado.
+Embora entendo que o tempo era mais que suficiente para completar mais etapas do trabalho, acredito que a minha dificuldade em C (e programação em geral) possam ter afetado o meu workflow e tenha substimado o tempo necessário para completar o trabalho.
