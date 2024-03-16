@@ -89,6 +89,30 @@ bool ShowED(ED* startED){
     return true;
 }
 /**
+ * @brief This function will look for a certain number inside of a list Line, and change it with the provided integer in the variable 'newentry'.
+ * 
+ * @param startLine Linked list Line. The beginning of the Line that hosts the first number and the memory address of the other numbers.
+ * @param newentry Integer. The number that will be added at the end of the Line.
+ * @return Line* Returns the new linked list.
+ */
+Line* ReplaceNumberInLine(Line* startLine, int newentry){
+	if(startLine==NULL || newentry < 0) return startLine;
+	Line* aux = startLine;
+	while (aux != NULL && aux->num, newentry < 0){
+		aux = aux->next;
+
+		if ((aux->num = newentry)){
+			aux->num = newentry;
+		}
+	}
+	return startLine;
+}
+
+ED* ReplaceNumberInED(ED* startED, int newentry){
+	//todo
+}
+
+/**
  * @brief This function is used to read a matrix from a file. This uses an auxiliary function called splitString. The way this works is by reading each line as a string and splitting it wherever a comma is found. Currently giving out a segmentation fault (how kind).
  * 
  * @param startED Linked list ED. The beginning of the ED list that hosts the first number of each Line and the memory address for the next Line.
