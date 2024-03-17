@@ -1,0 +1,60 @@
+\doxysection{utils.\+c File Reference}
+\hypertarget{utils_8c}{}\label{utils_8c}\index{utils.c@{utils.c}}
+{\ttfamily \#include "{}stuff.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8c_a759f4b03fd4de4bf479691b4854ff6bc}{split\+String}} (char \texorpdfstring{$\ast$}{*}string, const char \texorpdfstring{$\ast$}{*}delim)
+\begin{DoxyCompactList}\small\item\em This function is used to split a string wherever a certain delimiter is found. Currently this is spewing out a segmentation fault but I\textquotesingle{}m working on fixing it... \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{utils_8c_ab7204432c1308b00b6514580e3361dbb}{Remove\+All}} (\mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*}start\+ED)
+\begin{DoxyCompactList}\small\item\em This function clears everything from memory, to prevent memory leaks. This is used at the end of the main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Pedro Faria (\href{mailto:a23290@alunos.ipca.pt}{\texttt{ a23290@alunos.\+ipca.\+pt}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/03 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{utils_8c_ab7204432c1308b00b6514580e3361dbb}\label{utils_8c_ab7204432c1308b00b6514580e3361dbb} 
+\index{utils.c@{utils.c}!RemoveAll@{RemoveAll}}
+\index{RemoveAll@{RemoveAll}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{RemoveAll()}{RemoveAll()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*} Remove\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*}}]{start\+ED }\end{DoxyParamCaption})}
+
+
+
+This function clears everything from memory, to prevent memory leaks. This is used at the end of the main function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+ED} & Linked list \doxylink{structED}{ED}. The beginning of the \doxylink{structED}{ED} list that hosts the first number of each \doxylink{structLine}{Line} and the memory address for the next \doxylink{structLine}{Line}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{utils_8c_a759f4b03fd4de4bf479691b4854ff6bc}\label{utils_8c_a759f4b03fd4de4bf479691b4854ff6bc} 
+\index{utils.c@{utils.c}!splitString@{splitString}}
+\index{splitString@{splitString}!utils.c@{utils.c}}
+\doxysubsubsection{\texorpdfstring{splitString()}{splitString()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} split\+String (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{string,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{delim }\end{DoxyParamCaption})}
+
+
+
+This function is used to split a string wherever a certain delimiter is found. Currently this is spewing out a segmentation fault but I\textquotesingle{}m working on fixing it... 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String. The string to split \\
+\hline
+{\em delim} & String. The character(s) that seperate each value needed to split. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Returns the strings seperated. 
+\end{DoxyReturn}

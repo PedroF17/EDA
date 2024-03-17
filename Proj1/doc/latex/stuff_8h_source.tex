@@ -1,0 +1,30 @@
+\doxysection{stuff.\+h}
+\hypertarget{stuff_8h_source}{}\label{stuff_8h_source}\mbox{\hyperlink{stuff_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLine}{Line}}\{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ num;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLine}{Line}}*\ next;}
+\DoxyCodeLine{00016\ \}\mbox{\hyperlink{structLine}{Line}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structED}{ED}}\{}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{structLine}{Line}}\ *\ startLine;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structED}{ED}}\ *\ next;}
+\DoxyCodeLine{00021\ \}\mbox{\hyperlink{structED}{ED}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \mbox{\hyperlink{structLine}{Line}}\ *\ \mbox{\hyperlink{stuff_8h_abbaec728ee35e9e5824fcf388415ce58}{NewLine}}(\textcolor{keywordtype}{int}\ num);}
+\DoxyCodeLine{00024\ \mbox{\hyperlink{structED}{ED}}\ *\ NewED(\mbox{\hyperlink{structLine}{Line}}*\ \mbox{\hyperlink{structLine}{Line}});}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{stuff_8h_aec03dd5a0298c0108de667daa8bfb9bc}{ShowLine}}(\mbox{\hyperlink{structLine}{Line}}*\ n);}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{stuff_8h_a8eb1a506f49478de5b7f1b941f53378d}{ShowED}}(\mbox{\hyperlink{structED}{ED}}*\ \mbox{\hyperlink{structED}{ED}});}
+\DoxyCodeLine{00027\ \mbox{\hyperlink{structLine}{Line}}*\ \mbox{\hyperlink{stuff_8h_a618bb4ae1496eeb4058290a9649571e4}{PlaceIntLine}}(\mbox{\hyperlink{structLine}{Line}}*\ startLine,\ \textcolor{keywordtype}{int}\ newentry);}
+\DoxyCodeLine{00028\ \mbox{\hyperlink{structED}{ED}}*\ \mbox{\hyperlink{stuff_8h_a0a5376343c0d4c03fdf980a2457f41b4}{PlaceLineED}}(\mbox{\hyperlink{structED}{ED}}*\ startED,\ \mbox{\hyperlink{structLine}{Line}}*\ startLine);}
+\DoxyCodeLine{00029\ \mbox{\hyperlink{structED}{ED}}*\ \mbox{\hyperlink{stuff_8h_a2332546550e149abfa501e97a7811fe4}{ReadFile}}(\mbox{\hyperlink{structED}{ED}}*\ startED,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{char}**\ \mbox{\hyperlink{stuff_8h_a759f4b03fd4de4bf479691b4854ff6bc}{splitString}}(\textcolor{keywordtype}{char}\ *\textcolor{keywordtype}{string},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *delim);}
+\DoxyCodeLine{00031\ \mbox{\hyperlink{structED}{ED}}*\ \mbox{\hyperlink{stuff_8h_ab7204432c1308b00b6514580e3361dbb}{RemoveAll}}(\mbox{\hyperlink{structED}{ED}}*\ startED);}
+\DoxyCodeLine{00032\ \mbox{\hyperlink{structLine}{Line}}*\ \mbox{\hyperlink{stuff_8h_a296c702897cd83c84593ff64c22c5240}{ReplaceNumberInLine}}(\mbox{\hyperlink{structLine}{Line}}*\ startLine,\ \textcolor{keywordtype}{int}\ numToChange,\ \textcolor{keywordtype}{int}\ newentry);}
+
+\end{DoxyCode}

@@ -1,0 +1,175 @@
+\doxysection{functions.\+c File Reference}
+\hypertarget{functions_8c}{}\label{functions_8c}\index{functions.c@{functions.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}stuff.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{functions_8c_abbaec728ee35e9e5824fcf388415ce58}{New\+Line}} (int num)
+\begin{DoxyCompactList}\small\item\em This function will create a new line by adding it to the linked list \doxylink{structLine}{Line}, allocating memory for it, and replacing the integer inside of the list with the one provided. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{functions_8c_a618bb4ae1496eeb4058290a9649571e4}{Place\+Int\+Line}} (\mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*}start\+Line, int newentry)
+\begin{DoxyCompactList}\small\item\em This function will go through the whole linked list \doxylink{structLine}{Line}, by verifying if the next number in the list exists. Once the variable aux reaches the end of the list, place the new number in the previous spot. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{functions_8c_a0a5376343c0d4c03fdf980a2457f41b4}{Place\+Line\+ED}} (\mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*}start\+ED, \mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*}start\+Line)
+\begin{DoxyCompactList}\small\item\em This function can do two things. If there isn\textquotesingle{}t a list defined, the new \doxylink{structLine}{Line} will become the start of the new \doxylink{structED}{ED} (A linked list made of Lines). If there\textquotesingle{}s a list, it will go through the Lines until it reaches the last position, where the pointer for the next one is NULL. Once it reaches the last position, place the new \doxylink{structLine}{Line} in the previous position. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{functions_8c_a8cedcd58fe9c6a2b196f7a7fa88ddbda}{Show\+Line}} (\mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*}start\+Line)
+\begin{DoxyCompactList}\small\item\em This function will go through the \doxylink{structLine}{Line}, sending the integer inside of the current position to stdout. This will stop once it reaches the final position. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{functions_8c_a6ca05a7641f0de9b3d4ee22f7a5aa7e1}{Show\+ED}} (\mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*}start\+ED)
+\begin{DoxyCompactList}\small\item\em This function will go through the list \doxylink{structED}{ED}, calling the function Show\+Line to print each \doxylink{structLine}{Line}. This will stop once it reaches the final position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{functions_8c_a296c702897cd83c84593ff64c22c5240}{Replace\+Number\+In\+Line}} (\mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*}start\+Line, int num\+To\+Change, int newentry)
+\begin{DoxyCompactList}\small\item\em This function will look for a certain number inside of a list \doxylink{structLine}{Line}, and change it with the provided integer in the variable \textquotesingle{}newentry\textquotesingle{}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{functions_8c_a2332546550e149abfa501e97a7811fe4}{Read\+File}} (\mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*}start\+ED, const char \texorpdfstring{$\ast$}{*}path)
+\begin{DoxyCompactList}\small\item\em This function is used to read a matrix from a file. This uses an auxiliary function called split\+String. The way this works is by reading each line as a string and splitting it wherever a comma is found. Currently giving out a segmentation fault (how kind). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Pedro Faria (\href{mailto:a23290@alunos.ipca.pt}{\texttt{ a23290@alunos.\+ipca.\+pt}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/03 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{functions_8c_abbaec728ee35e9e5824fcf388415ce58}\label{functions_8c_abbaec728ee35e9e5824fcf388415ce58} 
+\index{functions.c@{functions.c}!NewLine@{NewLine}}
+\index{NewLine@{NewLine}!functions.c@{functions.c}}
+\doxysubsubsection{\texorpdfstring{NewLine()}{NewLine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*} New\+Line (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})}
+
+
+
+This function will create a new line by adding it to the linked list \doxylink{structLine}{Line}, allocating memory for it, and replacing the integer inside of the list with the one provided. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & Integer. The number that will be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Line\texorpdfstring{$\ast$}{*} Returns the new linked list \doxylink{structLine}{Line}. 
+\end{DoxyReturn}
+\Hypertarget{functions_8c_a618bb4ae1496eeb4058290a9649571e4}\label{functions_8c_a618bb4ae1496eeb4058290a9649571e4} 
+\index{functions.c@{functions.c}!PlaceIntLine@{PlaceIntLine}}
+\index{PlaceIntLine@{PlaceIntLine}!functions.c@{functions.c}}
+\doxysubsubsection{\texorpdfstring{PlaceIntLine()}{PlaceIntLine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*} Place\+Int\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*}}]{start\+Line,  }\item[{int}]{newentry }\end{DoxyParamCaption})}
+
+
+
+This function will go through the whole linked list \doxylink{structLine}{Line}, by verifying if the next number in the list exists. Once the variable aux reaches the end of the list, place the new number in the previous spot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Line} & Linked list \doxylink{structLine}{Line}. The beginning of the \doxylink{structLine}{Line} that hosts the first number and the memory address of the other numbers. \\
+\hline
+{\em newentry} & Integer. The number that will be added at the end of the \doxylink{structLine}{Line}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Line\texorpdfstring{$\ast$}{*} Returns the new linked list. 
+\end{DoxyReturn}
+\Hypertarget{functions_8c_a0a5376343c0d4c03fdf980a2457f41b4}\label{functions_8c_a0a5376343c0d4c03fdf980a2457f41b4} 
+\index{functions.c@{functions.c}!PlaceLineED@{PlaceLineED}}
+\index{PlaceLineED@{PlaceLineED}!functions.c@{functions.c}}
+\doxysubsubsection{\texorpdfstring{PlaceLineED()}{PlaceLineED()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*} Place\+Line\+ED (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*}}]{start\+ED,  }\item[{\mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*}}]{start\+Line }\end{DoxyParamCaption})}
+
+
+
+This function can do two things. If there isn\textquotesingle{}t a list defined, the new \doxylink{structLine}{Line} will become the start of the new \doxylink{structED}{ED} (A linked list made of Lines). If there\textquotesingle{}s a list, it will go through the Lines until it reaches the last position, where the pointer for the next one is NULL. Once it reaches the last position, place the new \doxylink{structLine}{Line} in the previous position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+ED} & Linked list \doxylink{structED}{ED}. The beginning of the \doxylink{structED}{ED} list that hosts the first number of each \doxylink{structLine}{Line} and the memory address for the next \doxylink{structLine}{Line}. \\
+\hline
+{\em start\+Line} & Linked list \doxylink{structLine}{Line}. The beginning of the \doxylink{structLine}{Line} that hosts the first number and the memory address of the other numbers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ED\texorpdfstring{$\ast$}{*} Returns the new linked list. 
+\end{DoxyReturn}
+\Hypertarget{functions_8c_a2332546550e149abfa501e97a7811fe4}\label{functions_8c_a2332546550e149abfa501e97a7811fe4} 
+\index{functions.c@{functions.c}!ReadFile@{ReadFile}}
+\index{ReadFile@{ReadFile}!functions.c@{functions.c}}
+\doxysubsubsection{\texorpdfstring{ReadFile()}{ReadFile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*} Read\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*}}]{start\+ED,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})}
+
+
+
+This function is used to read a matrix from a file. This uses an auxiliary function called split\+String. The way this works is by reading each line as a string and splitting it wherever a comma is found. Currently giving out a segmentation fault (how kind). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+ED} & Linked list \doxylink{structED}{ED}. The beginning of the \doxylink{structED}{ED} list that hosts the first number of each \doxylink{structLine}{Line} and the memory address for the next \doxylink{structLine}{Line}. \\
+\hline
+{\em path} & String. The file path of the text file containing the matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ED\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{functions_8c_a296c702897cd83c84593ff64c22c5240}\label{functions_8c_a296c702897cd83c84593ff64c22c5240} 
+\index{functions.c@{functions.c}!ReplaceNumberInLine@{ReplaceNumberInLine}}
+\index{ReplaceNumberInLine@{ReplaceNumberInLine}!functions.c@{functions.c}}
+\doxysubsubsection{\texorpdfstring{ReplaceNumberInLine()}{ReplaceNumberInLine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*} Replace\+Number\+In\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*}}]{start\+Line,  }\item[{int}]{num\+To\+Change,  }\item[{int}]{newentry }\end{DoxyParamCaption})}
+
+
+
+This function will look for a certain number inside of a list \doxylink{structLine}{Line}, and change it with the provided integer in the variable \textquotesingle{}newentry\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Line} & Linked list \doxylink{structLine}{Line}. The beginning of the \doxylink{structLine}{Line} that hosts the first number and the memory address of the other numbers. \\
+\hline
+{\em newentry} & Integer. The number that will be added at the end of the \doxylink{structLine}{Line}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+aux Returns the new linked list. 
+\end{DoxyReturn}
+\Hypertarget{functions_8c_a6ca05a7641f0de9b3d4ee22f7a5aa7e1}\label{functions_8c_a6ca05a7641f0de9b3d4ee22f7a5aa7e1} 
+\index{functions.c@{functions.c}!ShowED@{ShowED}}
+\index{ShowED@{ShowED}!functions.c@{functions.c}}
+\doxysubsubsection{\texorpdfstring{ShowED()}{ShowED()}}
+{\footnotesize\ttfamily bool Show\+ED (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structED}{ED}} \texorpdfstring{$\ast$}{*}}]{start\+ED }\end{DoxyParamCaption})}
+
+
+
+This function will go through the list \doxylink{structED}{ED}, calling the function Show\+Line to print each \doxylink{structLine}{Line}. This will stop once it reaches the final position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+ED} & Linked list \doxylink{structED}{ED}. The beginning of the \doxylink{structED}{ED} list that hosts the first number of each \doxylink{structLine}{Line} and the memory address for the next \doxylink{structLine}{Line}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true True if it managed to go through the list and reach the final position. 
+
+false False if there isn\textquotesingle{}t a list. 
+\end{DoxyReturn}
+\Hypertarget{functions_8c_a8cedcd58fe9c6a2b196f7a7fa88ddbda}\label{functions_8c_a8cedcd58fe9c6a2b196f7a7fa88ddbda} 
+\index{functions.c@{functions.c}!ShowLine@{ShowLine}}
+\index{ShowLine@{ShowLine}!functions.c@{functions.c}}
+\doxysubsubsection{\texorpdfstring{ShowLine()}{ShowLine()}}
+{\footnotesize\ttfamily bool Show\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structLine}{Line}} \texorpdfstring{$\ast$}{*}}]{start\+Line }\end{DoxyParamCaption})}
+
+
+
+This function will go through the \doxylink{structLine}{Line}, sending the integer inside of the current position to stdout. This will stop once it reaches the final position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Line} & Linked list \doxylink{structLine}{Line}. The beginning of the \doxylink{structLine}{Line} that hosts the first number and the memory address of the other numbers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true True if it managed to go through the line and reach the final position. 
+
+false False if there isn\textquotesingle{}t a \doxylink{structLine}{Line}. 
+\end{DoxyReturn}
