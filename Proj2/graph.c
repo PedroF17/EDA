@@ -13,29 +13,36 @@
 
 #pragma region Graph
 
- Vertex* newGraph(){
-    return NULL;
- }
+Vertice* newGraph(){
+	return NULL;
+}
 
- Vertex* newVertex(){
-    Vertex* new = (Vertex*)malloc(sizeof(Vertex));
+/**
+ * @brief This functions creates a new vertice, by firstly allocating enough memory for it and then inserting the correspondent information to it. Aditionally, this struct has a boolean called "visited" to be used on the BFS function, will return true if it has been visited, and false if it hasn't.
+ * 
+ * @param code Integer. The numeric value of the vertice
+ * @param name Char. The name of the vertice
+ * @return Vertice* Returns the new, filled out Vertice list.
+ */
+ Vertice* newVertice(int code, char* name){
+    Vertice* new = (Vertice*)malloc(sizeof(Vertice));
     if (new==NULL) return NULL;
-    new->code = code;
+    new->name = name;
+	new->code = code;
+	new->visited = false;
     new->next = NULL;
     new->adjacent = NULL;
     return new;
  }
 
- Vertex* placeVertex(Vertex* v, Vertex* new, bool* res){
+Vertice* placeVertice(Vertice* v, Vertice* new, bool* res){
     if (v == NULL) {
 		v = new;
 		*res = true;
 		return v;
-	}
-	else
-	{
-		Vertex* aux = v;
-		Vertex* prev = aux;
+	} else{
+		Vertice* aux = v;
+		Vertice* prev = aux;
 		if (aux == v) {
 			new->next = v;
 			v = new;
@@ -48,7 +55,7 @@
 		*res = true;
 	}
 	return v;
- }
+}
 
 Adj* clearAdj(Adj* a){
     if (a == NULL) return NULL;
@@ -68,16 +75,16 @@ void showAdj(Adj* a){
     showAdj(a->next);
 }
 
-void showGraph(Vertex* v){
+void showGraph(Vertice* v){
     if (v == NULL) return;
     printf("V: %d - %s\n", v->code,v->name);
     showAdj(v->adjacent);
     showGraph(v->next);
 }
 
-Vertex* clearGraph(Vertex* v){
+Vertice* clearGraph(Vertice* v){
     if (v == NULL) return NULL;
-	Vertex* aux = NULL;
+	Vertice* aux = NULL;
 	while (v) {
 		if (v->next)
 			aux = v->next;
@@ -112,7 +119,7 @@ int saveAdj(Adj* a, char* fileName, int vertexCodeStart) {
 	return 1;
 }
 
- int saveGraph(Vertex* v, char* fileName) {
+ int saveGraph(Vertice* v, char* fileName) {
 
 	if (v == NULL) return -1;
 	FILE* fp;
@@ -120,12 +127,12 @@ int saveAdj(Adj* a, char* fileName, int vertexCodeStart) {
 	fp = fopen(fileName, "wb");
 	if (fp == NULL) return -2;
 
-	Vertex* aux = v;
-	VertexFile auxFile;	//estrutura de vertice para gravar em ficheiro
+	Vertice* aux = v;
+	VerticeFile auxFile;	//estrutura de vertice para gravar em ficheiro
 	while (aux != NULL) {
 		auxFile.code = aux->code;
 		//strcpy(auxFile.cidade, aux->cidade);
-		fwrite(&auxFile, 1, sizeof(VertexFile), fp);
+		fwrite(&auxFile, 1, sizeof(VerticeFile), fp);
 		//Pode gravar de imediato as adjacencias!
 		if (aux->adjacent) {
 			r = saveAdj(aux->adjacent,fileName, aux->code);
@@ -135,41 +142,6 @@ int saveAdj(Adj* a, char* fileName, int vertexCodeStart) {
 	}
 	fclose(fp);
 	return 1;
-}
-
-//check this
-Vertex* loadAdj(Vertex* v, bool* res) {
-	*res = false;
-	FILE* fp;
-	if (g == NULL) return -1;
-	AdjFile aux;
-	Vertex* auxGraph = g;
-	while (auxGraph) {
-		fp = fopen(auxGraph->cidade, "rb");
-		if (fp != NULL) {
-			while (fread(&aux, 1, sizeof(AdjFile), fp)) {
-				g = InsereAdjacenteVerticeCod(g, aux.codeStart, aux.codeEnd, aux.weight, res);
-			}
-			fclose(fp);
-		}
-		auxGraph = auxGraph->next;
-	}
-	return g;
-}
-
-Vertex* loadGraph(Vertex* v, char* fileName, bool* res) {
-	*res = false;
-	FILE* fp = fopen(fileName, "rb");
-	if (fp == NULL) return NULL;
-
-	VertexFile aux;
-	Vertex* new;
-	while (fread(&aux, 1, sizeof(VertexFile), fp)) {
-		new = newVertex(aux.cidade, aux.code);
-		v = placeVertex(v, new, res);
-	}
-	fclose(fp);
-	return v;
 }
 
 #pragma endregion

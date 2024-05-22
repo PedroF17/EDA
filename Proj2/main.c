@@ -15,12 +15,19 @@
 	static int total = 0;
 	bool res;
 
-	Vertex *graph = newGraph();
+	Vertice *graph = newGraph();
 
-	Vertex* newVert = newVertex("test", total);
-	if (newVert != NULL){
-		graph = placeVertex(graph,newVert, &res);
+	Vertice* newVert = newVertice(1,"teste");
+	Vertice* newVert = newVertice(2,"teste");
+	Vertice* newVert = newVertice(3,"teste");
+	if (newVert != NULL){	
+		graph = placeVertice(graph,newVert, &res);
 		total++;
 	}
 	showGraph(graph);
+	printf("Graph shown!");
+	clearGraph(graph);
+	showGraph(graph);
+	printf("Graph cleared!");
+
  }
