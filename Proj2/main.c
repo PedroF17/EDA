@@ -10,24 +10,54 @@
  */
 
  #include "graph.h"
+#include <stdio.h>
 
- int main(){
-	static int total = 0;
-	bool res;
+//  int main(){
+// 	static int total = 0;
+// 	bool res;
 
-	Vertice *graph = newGraph();
+// 	Graph *graph = newGraph(100);
 
-	Vertice* newVert = newVertice(1,"teste");
-	Vertice* newVert = newVertice(2,"teste");
-	Vertice* newVert = newVertice(3,"teste");
-	if (newVert != NULL){	
-		graph = placeVertice(graph,newVert, &res);
-		total++;
-	}
-	showGraph(graph);
-	printf("Graph shown!");
-	clearGraph(graph);
-	showGraph(graph);
-	printf("Graph cleared!");
+// 	Vertice* newVert = newVertice(1);
+// 	if (newVert != NULL){	
+// 		graph = placeVertice(graph, newVert, &res);
+// 		total++;
+// 	}
+// 	showGraph(graph);
+// 	printf("Graph shown!");
+// 	clearGraph(graph);
+// 	printf("Graph cleared!");
 
- }
+//  }
+
+int main() {
+
+
+    Graph* g = newGraph(100);
+
+    // Create some vertices and add them to the graph
+    Vertice* v1 = newVertice(1);
+    Vertice* v2 = newVertice(2);
+    Vertice* v3 = newVertice(3);
+    Vertice* v4 = newVertice(4);
+
+	showGraph(g);
+
+    int res;
+	g = placeVertice(g, v1, &res);
+    g = placeVertice(g, v2, &res);
+    g = placeVertice(g, v3, &res);
+    g = placeVertice(g, v4, &res);
+
+
+	printf("Graph:\n");
+	showGraph(g);
+
+    clearGraph(g);
+
+	showGraph(g);
+
+    free(g);
+
+    return 0;
+}
