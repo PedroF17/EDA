@@ -17,7 +17,7 @@
 Graph* newGraph(int total){
 	Graph* g = (Graph*)malloc(sizeof(Graph*));
 	if (g != NULL) {
-		g->vertices = calloc(g->totalVert,sizeof(Vertice*));
+		g->vertices = NULL;
 		g->numVert = 0;
 		g->totalVert = total;
 	}
@@ -31,10 +31,11 @@ Graph* newGraph(int total){
  * @param name Char. The name of the vertice
  * @return Vertice* Returns the new, filled out Vertice list.
  */
-Vertice* newVertice(int code){
+Vertice* newVertice(int code, char* name){
     Vertice* new = (Vertice*)malloc(sizeof(Vertice*));
     if (new==NULL) return NULL;
 	new->code = code;
+	new->name = name;
 	new->visited = false;
     new->adjacent = NULL;
     return new;
@@ -42,19 +43,36 @@ Vertice* newVertice(int code){
 
 bool checkVertice(Graph *g, int code) {
 	if (g->vertices == NULL) return false;
-	for (int i=0; i<g->numVert; i++) {
-		if(g->vertices[i]->code == code) return true;
+	Vertice* aux = g->vertices;
+	while(aux){
+		if (aux->code == code) return true;
 	}
 	return false;
 }
 
 Graph* placeVertice(Graph* g, Vertice* new, int* res){
-	if(new==NULL)return NULL;
-	if(checkVertice(g, new->code)){
-		g->vertices = realloc(g->vertices, g->numVert+1 * sizeof(Vertice*));
-		g->vertices[g->numVert++] = new;
-		*res = 0;
-	}return g;
+	if(new == NULL || checkVertice(g, new->code)) return g;
+	// if(checkVertice(g, new->code)){
+	// 	g->vertices = realloc(g->vertices, g->numVert+1 * sizeof(Vertice*));
+	// 	g->vertices[g->numVert++] = new;
+	// 	*res = 0;
+	// }return g;
+	if(g->vertices == NULL){
+		g->vertices = new;
+		return g;
+	}else{
+		Vertice* aux = g->vertices;
+		Vertice* prev = aux;
+		while(aux != NULL){
+			prev = aux;
+			aux = aux->nextVert;
+		}
+		new = aux;
+		prev->nextVert = new;
+	}
+	return g;
+
+	
 }
 
 Adj* clearAdj(Adj* a){
@@ -73,11 +91,20 @@ Adj* clearAdj(Adj* a){
 
 Graph* clearGraph(Graph* g){
     if (g->vertices == NULL) return NULL;
-	for (int i=0; i<g->numVert; i++) {
-		clearAdj(g->vertices[i]->adjacent);
-		free(g->vertices[i]);
+	// for (int i=0; i<g->numVert; i++) {
+	// 	clearAdj(g->vertices[i]->adjacent);
+	// 	free(g->vertices[i]);
+	// }
+	// g->numVert = 0;
+	Vertice* aux = g->vertices;
+	Vertice* next = NULL;
+	while(aux){
+		if(aux->nextVert != NULL){
+			next = aux->nextVert;
+		}
+		free(aux);
+		aux = next;
 	}
-	g->numVert = 0;
 	return g;
 }
 
@@ -89,9 +116,17 @@ void showAdj(Adj* a){
 
 void showGraphAux(Graph* g){
 	if (g->vertices == NULL) return;
-	for (int i = 1; i<g->numVert; i++) {
-		printf("V: %d\n", g->vertices[i]->code);
-		showAdj(g->vertices[i]->adjacent);
+	// for (int i = 1; i<g->numVert; i++) {
+	// 	printf("%s\n", g->vertices[i]->name);
+	// 	printf("V: %d\n", g->vertices[i]->code);
+	// 	showAdj(g->vertices[i]->adjacent);
+	// }
+	Vertice* aux = g->vertices;
+	while(aux->nextVert != NULL){
+		printf("%s\n", g->vertices->name);
+		printf("V: %d\n", g->vertices->code);
+		//showAdj(g->vertices->adjacent);
+		aux = aux->nextVert;
 	}
 }
 
@@ -100,17 +135,37 @@ void showGraph(Graph* g){
 	showGraphAux(g);
 }
 
+bool BFS(Graph* g, int vOrigin, int code){
+	bool* visited = (bool*)calloc(g->numVert, sizeof(bool));
+	visited[vOrigin] = true;
+
+
+}
+
 
  #pragma endregion
 
  #pragma region File management
 
-// int saveAdj() {
-// }
+Graph* readGraph(char* filename){
+	
+	Graph* g = NULL;
+	FILE* fp;
+	fp = fopen(filename, "r");
+	
+	int numLines;
+	int numColumns;
+	char seperator;
+	char line[1024];
 
-// int saveGraph() {
-// }
+	while(fgets(line, sizeof(line), fp)){
+		numLines++;
+	}
+	//TODO
+	return g;
+}
 
-// int loadGraph(){	
-// }
+
+
+
 #pragma endregion

@@ -31,11 +31,14 @@
  typedef struct Vertice{
     int code;
     bool visited;
+    char* name;
     struct Adj* adjacent;
+    struct Vertice* nextVert;
  }Vertice;
 
  typedef struct Graph{
-    Vertice** vertices;
+    Vertice* vertices;
+    Adj* adjs;
     int numVert;
     int totalVert;
  }Graph;
@@ -50,7 +53,7 @@
 #pragma region Graph
 
 Graph* newGraph(int total);
-Vertice* newVertice(int code);
+Vertice* newVertice(int code, char* name);
 Graph* placeVertice(Graph* g, Vertice* newVert, int* res);
 bool checkVertice(Graph* g, int code);
 bool checkVerticeGraph(Graph* g, int code);

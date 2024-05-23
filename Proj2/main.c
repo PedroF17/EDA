@@ -9,26 +9,8 @@
  * 
  */
 
- #include "graph.h"
+#include "graph.h"
 #include <stdio.h>
-
-//  int main(){
-// 	static int total = 0;
-// 	bool res;
-
-// 	Graph *graph = newGraph(100);
-
-// 	Vertice* newVert = newVertice(1);
-// 	if (newVert != NULL){	
-// 		graph = placeVertice(graph, newVert, &res);
-// 		total++;
-// 	}
-// 	showGraph(graph);
-// 	printf("Graph shown!");
-// 	clearGraph(graph);
-// 	printf("Graph cleared!");
-
-//  }
 
 int main() {
 
@@ -36,28 +18,37 @@ int main() {
     Graph* g = newGraph(100);
 
     // Create some vertices and add them to the graph
-    Vertice* v1 = newVertice(1);
-    Vertice* v2 = newVertice(2);
-    Vertice* v3 = newVertice(3);
-    Vertice* v4 = newVertice(4);
+    Vertice* v1 = newVertice(1, "v1");
+    Vertice* v2 = newVertice(2, "v2");
+    Vertice* v3 = newVertice(3, "v3");
+    Vertice* v4 = newVertice(4, "v4");
 
-	showGraph(g);
+	int res;
 
-    int res;
 	g = placeVertice(g, v1, &res);
-    g = placeVertice(g, v2, &res);
-    g = placeVertice(g, v3, &res);
-    g = placeVertice(g, v4, &res);
+	//g = placeVertice(g, v2, &res);
+	//g = placeVertice(g, v3, &res);
+	//g = placeVertice(g, v4, &res);
 
-
-	printf("Graph:\n");
-	showGraph(g);
-
-    clearGraph(g);
+	printf("%d", g->vertices->code);
 
 	showGraph(g);
 
-    free(g);
+    // int res;
+	// g = placeVertice(g, v1, &res);
+    // g = placeVertice(g, v2, &res);
+    // g = placeVertice(g, v3, &res);
+    // g = placeVertice(g, v4, &res);
+
+
+	// printf("Graph:\n");
+	// showGraph(g);
+
+    // clearGraph(g);
+
+	// showGraph(g);
+
+    // free(g);
 
     return 0;
 }
