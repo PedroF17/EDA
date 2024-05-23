@@ -9,7 +9,11 @@
  * 
  */
 
-#pragma region #include
+ #define MAX 10
+ #define MAXWEIGHT 9999
+
+
+#pragma region include
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -19,49 +23,45 @@
 #pragma region Structs
 
  typedef struct Adj{
-    int codeAdj;
-    float weightAdj;
-    struct Adj *next;
+    int code;
+    float weight;
+    struct Adj* next;
  }Adj;
 
- typedef struct AdjFile{
-    int codeStart;
-    int codeEnd;
-    float weight;
- }AdjFile;
-
- typedef struct Vertex{
+ typedef struct Vertice{
     int code;
     bool visited;
-    struct Vertex* next;
     struct Adj* adjacent;
- }Vertex;
+ }Vertice;
 
- typedef struct VertexFile{
-    int code;
- }VertexFile;
+ typedef struct Graph{
+    Vertice** vertices;
+    int numVert;
+    int totalVert;
+ }Graph;
 
- #define MAX 10
- #define MAXWEIGHT 9999
-
-typedef struct Best {
-    int weight[MAX];
-    int prev[MAX];
-}Best;
+//typedef struct Best {
+//    int weight[MAX];
+//    int prev[MAX];
+//}Best;
 
 #pragma endregion
 
 #pragma region Graph
 
-Vertex* newVertex();
-Vertex* newGraph();
-Vertex* placeVertex(Vertex* v, Vertex* newVert, bool* res);
+Graph* newGraph(int total);
+Vertice* newVertice(int code);
+Graph* placeVertice(Graph* g, Vertice* newVert, int* res);
+bool checkVertice(Graph* g, int code);
+bool checkVerticeGraph(Graph* g, int code);
+Graph* placeVerticeGraph(Graph* g, Vertice* newVert, int* res);
 Adj* clearAdj(Adj* a);
 void showAdj(Adj* a);
-void showGraph(Vertex* v);
-Vertex* clearGraph(Vertex* v);
-int saveAdj(Adj* a, char* fileName, int vertexCodeStart);
-int saveGraph(Vertex* v, char* fileName);
-Vertex* loadAdj(Vertex* v, bool* res);
-Vertex* loadGraph(Vertex* v, char* fileName, bool* res);
+void showGraphAux(Graph* g);
+void showGraph(Graph* g);
+Graph* clearGraph(Graph* g);
+//int saveAdj(Adj* a, char* fileName, int vertexCodeStart);
+//int saveGraph(Vertice* v, char* fileName);
+//Vertice* loadAdj(Vertice* v, bool* res);
+//Vertice* loadGraph(Vertice* v, char* fileName, bool* res);
 
