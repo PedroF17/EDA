@@ -1,0 +1,404 @@
+\doxysection{graph.\+c File Reference}
+\hypertarget{graph_8c}{}\label{graph_8c}\index{graph.c@{graph.c}}
+{\ttfamily \#include "{}graph.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8c_ae3a1389d267758daa2d86a1170fe3722}{new\+Graph}} (int total)
+\begin{DoxyCompactList}\small\item\em Create a new \doxylink{structGraph}{Graph}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structVertice}{Vertice}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8c_af1704012e4a3ca78561f6cf2e7db3e58}{new\+Vertice}} (int code, char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em This function creates a new vertice, by firstly allocating enough memory for it and then inserting the correspondent information to it. Aditionally, this struct has a boolean called "{}visited"{} to be used on the BFS function, will return true if it has been visited, and false if it hasn\textquotesingle{}t. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8c_a3d9d69a13a77fd00a9671040436b315a}{check\+Vertice}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}g, int code)
+\begin{DoxyCompactList}\small\item\em This function is used to check if a vertice is already in the matrix, by going through the linked list and comparing the integer value with the one received. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8c_a906962d3ec64e23a2af726e3bced9dfc}{check\+Vertice\+Name}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}g, char \texorpdfstring{$\ast$}{*}name)
+\begin{DoxyCompactList}\small\item\em This function is used to check if a \doxylink{structVertice}{Vertice} is already in the matrix, by going through the linked list and comparing the name of the \doxylink{structVertice}{Vertice} with the one received. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8c_a15fb3065074f59b3d3926304744004f0}{place\+Vertice}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}g, \mbox{\hyperlink{structVertice}{Vertice}} \texorpdfstring{$\ast$}{*}new)
+\begin{DoxyCompactList}\small\item\em This function is used to insert a given \doxylink{structVertice}{Vertice} to an already existing \doxylink{structGraph}{Graph}. This is done by firstly checking if there is any Vertices in the \doxylink{structGraph}{Graph}, if there isn\textquotesingle{}t, the new \doxylink{structVertice}{Vertice} is placed at the start of the \doxylink{structGraph}{Graph}. If there\textquotesingle{}s already Vertices in the \doxylink{structGraph}{Graph}, the function will go through the \doxylink{structGraph}{Graph} until it finds the last \doxylink{structVertice}{Vertice} in the \doxylink{structGraph}{Graph}. After that, the new \doxylink{structVertice}{Vertice} is inserted inside of the \doxylink{structGraph}{Graph}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graph_8c_a7fb1b5c7138a597cbbd3d6b0dfde53b1}{count\+Paths}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}g, int start, int end, int count)
+\begin{DoxyCompactList}\small\item\em This function is used to count the number of paths that exist between two Vertices in the \doxylink{structGraph}{Graph} using their code values. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{graph_8c_a126722d05c1803c88ebd27434dae87df}{count\+Paths\+Name}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}g, char \texorpdfstring{$\ast$}{*}start, char \texorpdfstring{$\ast$}{*}end, int count)
+\begin{DoxyCompactList}\small\item\em This function is used to count the number of paths that exist between two Vertices in the \doxylink{structGraph}{Graph} using their name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8c_aa8c7820ab3da7f54284deb14d3ee1572}{new\+Adj}} (int code, float weight)
+\begin{DoxyCompactList}\small\item\em This function creates a new Adjacency. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{graph_8c_a54a439247471801170e88e0cdeeca209}{check\+Adj}} (\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*}a, int code)
+\begin{DoxyCompactList}\small\item\em This function will check if the code received conflicts with one of an Adjacency. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8c_a6f5c192df6e80bd4a6aa621c4355c9d4}{place\+Adj}} (\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*}a, \mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*}new, bool \texorpdfstring{$\ast$}{*}res)
+\begin{DoxyCompactList}\small\item\em This function is used to insert a new Adjacency in the \doxylink{structGraph}{Graph}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8c_a19255bb723b2def120dbe448381b68d0}{place\+Adj\+Vertice}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}g, char \texorpdfstring{$\ast$}{*}start, char \texorpdfstring{$\ast$}{*}end, float weight, bool \texorpdfstring{$\ast$}{*}res)
+\begin{DoxyCompactList}\small\item\em This function is the main function to add an Adjacency. It uses place\+Adj to insert an Adjacency to a \doxylink{structVertice}{Vertice}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8c_a723f088595dbb67e8881790534d96e87}{clear\+Adj}} (\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em This function is used to clear an Adjacency, using the free command. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8c_a9a2e91b2c6955522d1404b71cb05c3a2}{clear\+Graph}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em This function is used to clear the \doxylink{structGraph}{Graph} created. This will clear all the Vertices and their associated Ajacencies, using the clear\+Adj funciton. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8c_abcdb120ec6e7eeba3908d3eefe931caa}{show\+Adj}} (\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*}a)
+\begin{DoxyCompactList}\small\item\em This function is used to print out the Adjacencies of a \doxylink{structVertice}{Vertice}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{graph_8c_a2785e034b5a3c662b495cdb0e4c7dc1a}{show\+Graph}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em This function is used to show the \doxylink{structGraph}{Graph} created, by printing the name, code and Adjacencies of a \doxylink{structVertice}{Vertice}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{graph_8c_a88bf7b1b044f7d73e472295aca81e4ca}{BFS}} (\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}g, int start, int end)
+\begin{DoxyCompactList}\small\item\em This function is used to go through all of the available paths and finding a path between two codes of different Vertices. If it found one, it prints it out in the terminal. Currently not implemented. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{graph_8c_a6b955d7d0f41bca246460ba38a2efa48}{read\+Graph}} (char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em This function reads the matrix from a text file and inserts it on a \doxylink{structGraph}{Graph}. Currently not implemented. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Pedro Faria (\href{mailto:a23290@alunos.ipca.pt}{\texttt{ a23290@alunos.\+ipca.\+pt}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+5 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+May 2024 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{graph_8c_a88bf7b1b044f7d73e472295aca81e4ca}\label{graph_8c_a88bf7b1b044f7d73e472295aca81e4ca} 
+\index{graph.c@{graph.c}!BFS@{BFS}}
+\index{BFS@{BFS}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{BFS()}{BFS()}}
+{\footnotesize\ttfamily bool BFS (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g,  }\item[{int}]{start,  }\item[{int}]{end }\end{DoxyParamCaption})}
+
+
+
+This function is used to go through all of the available paths and finding a path between two codes of different Vertices. If it found one, it prints it out in the terminal. Currently not implemented. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{structGraph}{Graph}. The \doxylink{structGraph}{Graph} that has the Vertices to look for. \\
+\hline
+{\em start} & Integer. The code of the starting \doxylink{structVertice}{Vertice} \\
+\hline
+{\em end} & Integer. The code of the ending \doxylink{structVertice}{Vertice} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there\textquotesingle{}s a path between the two Vertices. 
+
+false if a path between the Vertices wasn\textquotesingle{}t found. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_a54a439247471801170e88e0cdeeca209}\label{graph_8c_a54a439247471801170e88e0cdeeca209} 
+\index{graph.c@{graph.c}!checkAdj@{checkAdj}}
+\index{checkAdj@{checkAdj}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{checkAdj()}{checkAdj()}}
+{\footnotesize\ttfamily bool check\+Adj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{int}]{code }\end{DoxyParamCaption})}
+
+
+
+This function will check if the code received conflicts with one of an Adjacency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Adjacency. \\
+\hline
+{\em code} & Integer. The value to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there\textquotesingle{}s an Adjacency with the same code as the one provided. 
+
+false if there isn\textquotesingle{}t an Adjacency with the code received. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_a3d9d69a13a77fd00a9671040436b315a}\label{graph_8c_a3d9d69a13a77fd00a9671040436b315a} 
+\index{graph.c@{graph.c}!checkVertice@{checkVertice}}
+\index{checkVertice@{checkVertice}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{checkVertice()}{checkVertice()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} check\+Vertice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g,  }\item[{int}]{code }\end{DoxyParamCaption})}
+
+
+
+This function is used to check if a vertice is already in the matrix, by going through the linked list and comparing the integer value with the one received. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{structGraph}{Graph}. \\
+\hline
+{\em code} & Integer. The number that is prompted to be checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there is a \doxylink{structVertice}{Vertice} with the same value as the "{}code"{} received. 
+
+false if there isn\textquotesingle{}t a \doxylink{structVertice}{Vertice} with the same value. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_a906962d3ec64e23a2af726e3bced9dfc}\label{graph_8c_a906962d3ec64e23a2af726e3bced9dfc} 
+\index{graph.c@{graph.c}!checkVerticeName@{checkVerticeName}}
+\index{checkVerticeName@{checkVerticeName}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{checkVerticeName()}{checkVerticeName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} check\+Vertice\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+
+
+
+This function is used to check if a \doxylink{structVertice}{Vertice} is already in the matrix, by going through the linked list and comparing the name of the \doxylink{structVertice}{Vertice} with the one received. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{structGraph}{Graph}. \\
+\hline
+{\em name} & Char. The name of the \doxylink{structVertice}{Vertice}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there is a \doxylink{structVertice}{Vertice} with the same name of the name received. 
+
+false if there isn\textquotesingle{}t a \doxylink{structVertice}{Vertice} with the same name. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_a723f088595dbb67e8881790534d96e87}\label{graph_8c_a723f088595dbb67e8881790534d96e87} 
+\index{graph.c@{graph.c}!clearAdj@{clearAdj}}
+\index{clearAdj@{clearAdj}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{clearAdj()}{clearAdj()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*} clear\+Adj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+This function is used to clear an Adjacency, using the free command. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Adjacency. The Adjacency to be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Adj\texorpdfstring{$\ast$}{*} Returns the cleared Adjacency. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_a9a2e91b2c6955522d1404b71cb05c3a2}\label{graph_8c_a9a2e91b2c6955522d1404b71cb05c3a2} 
+\index{graph.c@{graph.c}!clearGraph@{clearGraph}}
+\index{clearGraph@{clearGraph}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{clearGraph()}{clearGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} clear\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g }\end{DoxyParamCaption})}
+
+
+
+This function is used to clear the \doxylink{structGraph}{Graph} created. This will clear all the Vertices and their associated Ajacencies, using the clear\+Adj funciton. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{structGraph}{Graph}. The \doxylink{structGraph}{Graph} to be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Graph\texorpdfstring{$\ast$}{*} Returns the cleared \doxylink{structGraph}{Graph}. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_a7fb1b5c7138a597cbbd3d6b0dfde53b1}\label{graph_8c_a7fb1b5c7138a597cbbd3d6b0dfde53b1} 
+\index{graph.c@{graph.c}!countPaths@{countPaths}}
+\index{countPaths@{countPaths}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{countPaths()}{countPaths()}}
+{\footnotesize\ttfamily int count\+Paths (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g,  }\item[{int}]{start,  }\item[{int}]{end,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+
+This function is used to count the number of paths that exist between two Vertices in the \doxylink{structGraph}{Graph} using their code values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{structGraph}{Graph}. \\
+\hline
+{\em start} & Integer. The value of the first \doxylink{structVertice}{Vertice}. \\
+\hline
+{\em end} & Integer. The value of the last \doxylink{structVertice}{Vertice}. \\
+\hline
+{\em count} & Integer. A counter to measure how many paths are there. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns the number of paths between the two Vertices. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_a126722d05c1803c88ebd27434dae87df}\label{graph_8c_a126722d05c1803c88ebd27434dae87df} 
+\index{graph.c@{graph.c}!countPathsName@{countPathsName}}
+\index{countPathsName@{countPathsName}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{countPathsName()}{countPathsName()}}
+{\footnotesize\ttfamily int count\+Paths\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g,  }\item[{char \texorpdfstring{$\ast$}{*}}]{start,  }\item[{char \texorpdfstring{$\ast$}{*}}]{end,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+
+This function is used to count the number of paths that exist between two Vertices in the \doxylink{structGraph}{Graph} using their name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{structGraph}{Graph}. \\
+\hline
+{\em start} & Char. The name of the first \doxylink{structVertice}{Vertice}. \\
+\hline
+{\em end} & Char. The name of the last \doxylink{structVertice}{Vertice}. \\
+\hline
+{\em count} & Integer. A counter to measure how many paths are there. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns the number of paths between the two Vertices. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_aa8c7820ab3da7f54284deb14d3ee1572}\label{graph_8c_aa8c7820ab3da7f54284deb14d3ee1572} 
+\index{graph.c@{graph.c}!newAdj@{newAdj}}
+\index{newAdj@{newAdj}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{newAdj()}{newAdj()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*} new\+Adj (\begin{DoxyParamCaption}\item[{int}]{code,  }\item[{float}]{weight }\end{DoxyParamCaption})}
+
+
+
+This function creates a new Adjacency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Integer. \\
+\hline
+{\em weight} & Float. The weight of the Adjacency. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Adj\texorpdfstring{$\ast$}{*} Returns the new Adjacency. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_ae3a1389d267758daa2d86a1170fe3722}\label{graph_8c_ae3a1389d267758daa2d86a1170fe3722} 
+\index{graph.c@{graph.c}!newGraph@{newGraph}}
+\index{newGraph@{newGraph}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{newGraph()}{newGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} new\+Graph (\begin{DoxyParamCaption}\item[{int}]{total }\end{DoxyParamCaption})}
+
+
+
+Create a new \doxylink{structGraph}{Graph}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em total} & Integer. The total number of Vertices on the \doxylink{structGraph}{Graph}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Graph\texorpdfstring{$\ast$}{*} Returns the created \doxylink{structGraph}{Graph}. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_af1704012e4a3ca78561f6cf2e7db3e58}\label{graph_8c_af1704012e4a3ca78561f6cf2e7db3e58} 
+\index{graph.c@{graph.c}!newVertice@{newVertice}}
+\index{newVertice@{newVertice}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{newVertice()}{newVertice()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structVertice}{Vertice}} \texorpdfstring{$\ast$}{*} new\+Vertice (\begin{DoxyParamCaption}\item[{int}]{code,  }\item[{char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+
+
+
+This function creates a new vertice, by firstly allocating enough memory for it and then inserting the correspondent information to it. Aditionally, this struct has a boolean called "{}visited"{} to be used on the BFS function, will return true if it has been visited, and false if it hasn\textquotesingle{}t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & Integer. The numeric value of the vertice \\
+\hline
+{\em name} & Char. The name of the vertice \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vertice\texorpdfstring{$\ast$}{*} Returns the new, filled out \doxylink{structVertice}{Vertice} list. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_a6f5c192df6e80bd4a6aa621c4355c9d4}\label{graph_8c_a6f5c192df6e80bd4a6aa621c4355c9d4} 
+\index{graph.c@{graph.c}!placeAdj@{placeAdj}}
+\index{placeAdj@{placeAdj}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{placeAdj()}{placeAdj()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*} place\+Adj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*}}]{a,  }\item[{\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*}}]{new,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{res }\end{DoxyParamCaption})}
+
+
+
+This function is used to insert a new Adjacency in the \doxylink{structGraph}{Graph}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Adjacency. \\
+\hline
+{\em new} & Adjacency. The new Adjacency. \\
+\hline
+{\em res} & Boolean. The result of the function. True if it placed the new Adjacency, false if it didn\textquotesingle{}t. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Adj\texorpdfstring{$\ast$}{*} Returns the new changed Adjacency. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_a19255bb723b2def120dbe448381b68d0}\label{graph_8c_a19255bb723b2def120dbe448381b68d0} 
+\index{graph.c@{graph.c}!placeAdjVertice@{placeAdjVertice}}
+\index{placeAdjVertice@{placeAdjVertice}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{placeAdjVertice()}{placeAdjVertice()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} place\+Adj\+Vertice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g,  }\item[{char \texorpdfstring{$\ast$}{*}}]{start,  }\item[{char \texorpdfstring{$\ast$}{*}}]{end,  }\item[{float}]{weight,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{res }\end{DoxyParamCaption})}
+
+
+
+This function is the main function to add an Adjacency. It uses place\+Adj to insert an Adjacency to a \doxylink{structVertice}{Vertice}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{structGraph}{Graph}. The \doxylink{structGraph}{Graph} where the Adjacency will be placed. \\
+\hline
+{\em start} & Char. The name of the first \doxylink{structVertice}{Vertice}. \\
+\hline
+{\em end} & Char. The name of the last \doxylink{structVertice}{Vertice}. \\
+\hline
+{\em weight} & Float. The weight of the Adjacency. \\
+\hline
+{\em res} & Boolean. The result of the function. True if the Adjacency is inserted, false if it isn\textquotesingle{}t. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Graph\texorpdfstring{$\ast$}{*} Returns the new changed \doxylink{structGraph}{Graph}. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_a15fb3065074f59b3d3926304744004f0}\label{graph_8c_a15fb3065074f59b3d3926304744004f0} 
+\index{graph.c@{graph.c}!placeVertice@{placeVertice}}
+\index{placeVertice@{placeVertice}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{placeVertice()}{placeVertice()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} place\+Vertice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{structVertice}{Vertice}} \texorpdfstring{$\ast$}{*}}]{new }\end{DoxyParamCaption})}
+
+
+
+This function is used to insert a given \doxylink{structVertice}{Vertice} to an already existing \doxylink{structGraph}{Graph}. This is done by firstly checking if there is any Vertices in the \doxylink{structGraph}{Graph}, if there isn\textquotesingle{}t, the new \doxylink{structVertice}{Vertice} is placed at the start of the \doxylink{structGraph}{Graph}. If there\textquotesingle{}s already Vertices in the \doxylink{structGraph}{Graph}, the function will go through the \doxylink{structGraph}{Graph} until it finds the last \doxylink{structVertice}{Vertice} in the \doxylink{structGraph}{Graph}. After that, the new \doxylink{structVertice}{Vertice} is inserted inside of the \doxylink{structGraph}{Graph}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{structGraph}{Graph}. \\
+\hline
+{\em new} & \doxylink{structVertice}{Vertice}, the new \doxylink{structVertice}{Vertice} to be placed inside of the \doxylink{structGraph}{Graph} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Graph\texorpdfstring{$\ast$}{*} returns the changed \doxylink{structGraph}{Graph} 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_a6b955d7d0f41bca246460ba38a2efa48}\label{graph_8c_a6b955d7d0f41bca246460ba38a2efa48} 
+\index{graph.c@{graph.c}!readGraph@{readGraph}}
+\index{readGraph@{readGraph}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{readGraph()}{readGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*} read\+Graph (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename }\end{DoxyParamCaption})}
+
+
+
+This function reads the matrix from a text file and inserts it on a \doxylink{structGraph}{Graph}. Currently not implemented. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Char. The name of the text file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Graph\texorpdfstring{$\ast$}{*} Returns the \doxylink{structGraph}{Graph} found in the text file. 
+\end{DoxyReturn}
+\Hypertarget{graph_8c_abcdb120ec6e7eeba3908d3eefe931caa}\label{graph_8c_abcdb120ec6e7eeba3908d3eefe931caa} 
+\index{graph.c@{graph.c}!showAdj@{showAdj}}
+\index{showAdj@{showAdj}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{showAdj()}{showAdj()}}
+{\footnotesize\ttfamily void show\+Adj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structAdj}{Adj}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+
+
+This function is used to print out the Adjacencies of a \doxylink{structVertice}{Vertice}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Adjacency. The Adjacency to be shown in the terminal. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{graph_8c_a2785e034b5a3c662b495cdb0e4c7dc1a}\label{graph_8c_a2785e034b5a3c662b495cdb0e4c7dc1a} 
+\index{graph.c@{graph.c}!showGraph@{showGraph}}
+\index{showGraph@{showGraph}!graph.c@{graph.c}}
+\doxysubsubsection{\texorpdfstring{showGraph()}{showGraph()}}
+{\footnotesize\ttfamily void show\+Graph (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraph}{Graph}} \texorpdfstring{$\ast$}{*}}]{g }\end{DoxyParamCaption})}
+
+
+
+This function is used to show the \doxylink{structGraph}{Graph} created, by printing the name, code and Adjacencies of a \doxylink{structVertice}{Vertice}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{structGraph}{Graph}. The \doxylink{structGraph}{Graph} to be shown in the terminal. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,63 @@
+\doxysection{graph.\+h}
+\hypertarget{graph_8h_source}{}\label{graph_8h_source}\mbox{\hyperlink{graph_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \#define\ MAX\ 10}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \#define\ MAXWEIGHT\ 9999}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#pragma\ region\ include}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#pragma\ region\ endregion}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#pragma\ region\ Structs}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structAdj}{Adj}}\{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ code;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ weight;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structAdj}{Adj}}*\ next;}
+\DoxyCodeLine{00026\ \ \}\mbox{\hyperlink{structAdj}{Adj}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structVertice}{Vertice}}\{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ code;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ visited;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{char}*\ name;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structAdj}{Adj}}*\ adjacent;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structVertice}{Vertice}}*\ nextVert;}
+\DoxyCodeLine{00034\ \ \}\mbox{\hyperlink{structVertice}{Vertice}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGraph}{Graph}}\{}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{structVertice}{Vertice}}*\ vertices;}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{structAdj}{Adj}}*\ adjs;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ numVert;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ totalVert;}
+\DoxyCodeLine{00041\ \ \}\mbox{\hyperlink{structGraph}{Graph}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//typedef\ struct\ Best\ \{}}
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ \ \ \ int\ weight[MAX];}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ \ \ \ int\ prev[MAX];}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\}Best;}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#pragma\ endregion}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#pragma\ region\ Graph}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \mbox{\hyperlink{structGraph}{Graph}}*\ \mbox{\hyperlink{graph_8h_ae3a1389d267758daa2d86a1170fe3722}{newGraph}}(\textcolor{keywordtype}{int}\ total);}
+\DoxyCodeLine{00053\ \mbox{\hyperlink{structVertice}{Vertice}}*\ \mbox{\hyperlink{graph_8h_af1704012e4a3ca78561f6cf2e7db3e58}{newVertice}}(\textcolor{keywordtype}{int}\ code,\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00054\ \mbox{\hyperlink{structGraph}{Graph}}*\ \mbox{\hyperlink{graph_8h_a799231e5cf003e7fc5468c3d0746f9d5}{placeVertice}}(\mbox{\hyperlink{structGraph}{Graph}}*\ g,\ \mbox{\hyperlink{structVertice}{Vertice}}*\ newVert);}
+\DoxyCodeLine{00055\ \mbox{\hyperlink{structGraph}{Graph}}*\ \mbox{\hyperlink{graph_8h_a3d9d69a13a77fd00a9671040436b315a}{checkVertice}}(\mbox{\hyperlink{structGraph}{Graph}}\ *g,\ \textcolor{keywordtype}{int}\ code);}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{bool}\ checkVerticeGraph(\mbox{\hyperlink{structGraph}{Graph}}*\ g,\ \textcolor{keywordtype}{int}\ code);}
+\DoxyCodeLine{00057\ \mbox{\hyperlink{structAdj}{Adj}}*\ \mbox{\hyperlink{graph_8h_a723f088595dbb67e8881790534d96e87}{clearAdj}}(\mbox{\hyperlink{structAdj}{Adj}}*\ a);}
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_abcdb120ec6e7eeba3908d3eefe931caa}{showAdj}}(\mbox{\hyperlink{structAdj}{Adj}}*\ a);}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{graph_8h_a2785e034b5a3c662b495cdb0e4c7dc1a}{showGraph}}(\mbox{\hyperlink{structGraph}{Graph}}*\ g);}
+\DoxyCodeLine{00060\ \mbox{\hyperlink{structGraph}{Graph}}*\ \mbox{\hyperlink{graph_8h_a9a2e91b2c6955522d1404b71cb05c3a2}{clearGraph}}(\mbox{\hyperlink{structGraph}{Graph}}*\ g);}
+\DoxyCodeLine{00061\ \textcolor{comment}{//int\ saveAdj(Adj*\ a,\ char*\ fileName,\ int\ vertexCodeStart);}}
+\DoxyCodeLine{00062\ \textcolor{comment}{//int\ saveGraph(Vertice*\ v,\ char*\ fileName);}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//Vertice*\ loadAdj(Vertice*\ v,\ bool*\ res);}}
+\DoxyCodeLine{00064\ \textcolor{comment}{//Vertice*\ loadGraph(Vertice*\ v,\ char*\ fileName,\ bool*\ res);}}
+\DoxyCodeLine{00065\ }
+
+\end{DoxyCode}
