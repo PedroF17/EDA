@@ -2,11 +2,8 @@
  * @file graph.h
  * @author Pedro Faria (a23290@alunos.ipca.pt)
  * @brief 
- * @version 0.1
- * @date 2024-05-21
- * 
- * @copyright Copyright (c) 2024
- * 
+ * @version 0.5
+ * @date May 2024
  */
 
  #define MAX 10
@@ -54,13 +51,11 @@
 
 Graph* newGraph(int total);
 Vertice* newVertice(int code, char* name);
-Graph* placeVertice(Graph* g, Vertice* newVert, int* res);
-bool checkVertice(Graph* g, int code);
+Graph* placeVertice(Graph* g, Vertice* newVert);
+Graph* checkVertice(Graph *g, int code);
 bool checkVerticeGraph(Graph* g, int code);
-Graph* placeVerticeGraph(Graph* g, Vertice* newVert, int* res);
 Adj* clearAdj(Adj* a);
 void showAdj(Adj* a);
-void showGraphAux(Graph* g);
 void showGraph(Graph* g);
 Graph* clearGraph(Graph* g);
 //int saveAdj(Adj* a, char* fileName, int vertexCodeStart);
