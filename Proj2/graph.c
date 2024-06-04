@@ -8,6 +8,7 @@
 
 #include "graph.h"
 #include <stdio.h>
+#include <string.h>
 
 #pragma region Graph
 
@@ -347,4 +348,20 @@ Graph* readGraph(char* filename){
 	return g;
 }
 
+int saveGraph(Graph* g, char* fileName){
+	if(g == NULL) return -1;
+	FILE* fp;
+	int r;
+	fp = fopen(fileName, "wb");
+	if(fp == NULL) return -2;
+	Graph* aux = g;
+	GraphFile auxF;
+	while(aux){
+		auxF.vertices->code = aux->vertices->code;
+		strcpy(auxF.vertices->name, aux->vertices->name);
+		fwrite(&auxF, 1, sizeof(GraphFile), fp);
+	}
+	fclose(fp);
+	return 1;
+}
 #pragma endregion
